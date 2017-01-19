@@ -1,8 +1,6 @@
 <template>
   <div class="nsr-loading-center">
-    <i class="fa fa-spinner fa-spin"
-    :class="{'nsr-loading-hiden': hideLoading}">
-    </i>
+    <i class="fa fa-spinner fa-spin" :class="{'nsr-loading-hiden': hideLoading}"></i>
   </div>
 </template>
 

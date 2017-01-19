@@ -1,6 +1,6 @@
 <template>
   <div>
-    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false"></bar-top>
+    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false" v-bind:navTitle="navTitle"></bar-top>
     <div class="pagethree-button">
         <option-button></option-button>
     </div>
@@ -16,6 +16,11 @@
   var alert  = require('../components/alert.vue');
 
   module.exports = {
+    data(){
+      return {
+        navTitle: "Options"
+      }
+    },
     components:{
       'bar-top':barTop,
       'option-button':button,

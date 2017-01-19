@@ -19,7 +19,7 @@ webpackConfig.entry　 =　{
 
 webpackConfig.output = {
   path: './dist',
-  publicPath: 'dist/',
+  publicPath: '',
   filename: production? '[name].[hash].js': '[name].js'
 };//　output
 
@@ -58,8 +58,8 @@ webpackConfig.plugins = [
   // make index.html
   new HtmlWebpackPlugin({
     title: 'easy-vue',
-    filename: '../index.html',
-    template: './index.template.html'
+    filename: '../dist/index.html',
+    template: './index.html'
   }),
   // separate css file
   new ExtractPlugin(production? 'app.[hash].css': 'app.css'),

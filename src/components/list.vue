@@ -5,19 +5,18 @@
                 <img class="media-object pull-left" v-bind:src="article.images.medium">
                 <div class="media-body">
                     {{article.original_title}}
-                    <p>{{article.title}}--年份：{{article.year}}</p>
+                    <p>{{article.title}}&nbsp;&nbsp;&nbsp;&nbsp;--年份：{{article.year}}</p>
                 </div>
             </router-link>
         </li>
         <div class="nsr-card-loading">
-            <nsr-loading :hide-loading="isloadingComplete" :is-end-text="endText">
-            </nsr-loading>
+            <nsr-loading :hide-loading="isloadingComplete" :is-end-text="endText"></nsr-loading>
         </div>
     </ul>
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState} from 'vuex'
 
 module.exports = {
     data: function() {
@@ -66,13 +65,13 @@ module.exports = {
     },
     computed: mapState({
         // results: function(state) {
-        //     return state.cardData;
+        //     return state.cardData
         // },
         // isloadingComplete: function(state) {
-        //     return state.isloadingComplete;
+        //     return state.isloadingComplete
         // },
         // busy: function(state) {
-        //     return state.busy;
+        //     return state.busy
         // }
     })
 }

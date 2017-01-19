@@ -1,7 +1,6 @@
 <template>
   <div>
-    <bar-top :show-refesh-icon="false" :show-return-icon="true" :show-write-icon="false"></bar-top>
-    <!-- <text-content></text-content> -->
+    <bar-top :show-refesh-icon="false" :show-return-icon="true" :show-write-icon="false" v-bind:navTitle="content.title"></bar-top>
     <div class="movie">
       <div class="movie-title">{{content.title}}</div>
       <div class="movie-other-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--{{content.alt_title}}</div>
@@ -22,8 +21,8 @@
 </template>
 
 <script>
-  var barTop  = require('../components/barTop.vue');
-  // var text = require('../components/text.vue');
+  var barTop  = require('../components/barTop.vue')
+  // var text = require('../components/text.vue')
 
   module.exports = {
     data: function() {

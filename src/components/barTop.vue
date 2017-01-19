@@ -3,16 +3,13 @@
     <a class="icon icon-refresh pull-left" v-if="showRefeshIcon" @click="refresh"></a>
     <a class="icon icon-left-nav pull-left" v-if="showReturnIcon" @click="goBack"></a>
     <a class="icon icon-compose pull-right" v-if="showWriteIcon" @click="writeSome"></a>
-    <h1 class="title">{{showTitle}}</h1>
+    <h1 class="title">{{ navTitle }}</h1>
   </header>
 </template>
 
 <script>
   module.exports={
     props: {
-      showTitle: {
-        default: "hello vue"
-      },
       showRefeshIcon: {
         default: true
       },
@@ -22,19 +19,25 @@
       showWriteIcon: {
         default: true
       },
+      navTitle: String
     },
     methods:{
       writeSome:function () {
-        this.$store.commit('isShowAlert', true);
+        this.$store.commit('isShowAlert', true)
       },
       refresh: function () {
-        this.$store.dispatch('getData', {
-          progress: this,
-          refresh: true
-        });
+        console.log(this.sss)
+        console.log(this.navTitle)
+        console.log(this.showRefeshIcon)
+        console.log(this.showReturnIcon)
+        console.log(this.showWriteIcon)
+        // this.$store.dispatch('getData', {
+        //   progress: this,
+        //   refresh: true
+        // })
       },
       goBack: function () {
-        this.$router.back();
+        this.$router.back()
       }
     }
   }

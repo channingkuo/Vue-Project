@@ -1,7 +1,10 @@
 <template>
   <div>
-    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false"></bar-top>
+    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false" v-bind:navTitle="navTitle"></bar-top>
     <div class="content-style">This is Home Page</div>
+    <input type="text" v-model="msg">
+    <br>
+    <child :inputValue="msg"></child>
     <!-- <card></card> -->
     <bar-bottom></bar-bottom>
     <!-- <alert></alert> -->
@@ -15,11 +18,18 @@
   var alert  = require('../components/alert.vue');
 
   module.exports = {
+    data(){
+      return {
+        navTitle: "Home"
+        msg: '请输入'
+      }
+    },
     components:{
       'bar-top':barTop,
       'card':card,
       'alert':alert,
       'bar-bottom':barBottom,
+      'child': require('../components/Child.vue')
     },
     methods:{
 

@@ -26,21 +26,21 @@
   		},
 	    mounted: function () {
 				this.$nextTick(function () {
-					var uri = this.$route.path;
+					var uri = this.$route.path
 		    	if (uri === '/') {
-					this.isHome   = true;
-					this.isList   = false;
-					this.isOption = false;
+						this.isHome   = true
+						this.isList   = false
+						this.isOption = false
 		    	}
 		    	if (uri === '/lists') {
-					this.isHome   = false;
-					this.isList   = true;
-					this.isOption = false;
+						this.isHome   = false
+						this.isList   = true
+						this.isOption = false
 		    	}
 		    	if (uri === '/option') {
-					this.isHome   = false;
-					this.isList   = false;
-					this.isOption = true;
+						this.isHome   = false
+						this.isList   = false
+						this.isOption = true
 		    	}
 				})
 	    },
