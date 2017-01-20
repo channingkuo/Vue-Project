@@ -1,13 +1,13 @@
 <template>
   <div>
-    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false" v-bind:navTitle="navTitle"></bar-top>
+    <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="true" v-bind:navTitle="navTitle"></bar-top>
     <div class="content-style">This is Home Page</div>
     <input type="text" v-model="msg">
     <br>
     <child :inputValue="msg"></child>
     <!-- <card></card> -->
     <bar-bottom></bar-bottom>
-    <!-- <alert></alert> -->
+    <alert :title="alertTitle" :message="alertMessage" :show-ok-button="true"></alert>
   </div>
 </template>
 
@@ -20,7 +20,9 @@
   module.exports = {
     data(){
       return {
-        navTitle: "Home"
+        navTitle: "Home",
+        alertTitle: "Test",
+        alertMessage: "Hello Vue ~",
         msg: '请输入'
       }
     },

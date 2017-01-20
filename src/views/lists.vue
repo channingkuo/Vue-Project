@@ -2,6 +2,10 @@
   <div>
     <bar-top :show-refesh-icon="true" :show-return-icon="false" :show-write-icon="false" v-bind:navTitle="navTitle" :sss="false"></bar-top>
     <list></list>
+    <!-- <keep-alive>
+      <component :is="list"></component>
+    </keep-alive> -->
+
     <bar-bottom></bar-bottom>
     <!-- <alert></alert> -->
   </div>
@@ -27,7 +31,13 @@
     },
     methods:{
 
-    }
+    }//,
+    // activated: function (to, from, next) {
+    //   console.log(3)
+    // },
+    // deactivated: function (to, from, next) {
+    //   console.log(4)
+    // }
   }
 </script>
 

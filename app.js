@@ -14,8 +14,10 @@ var VueRouter = require('vue-router')//get vue-router
 var VueProgressBar = require('vue-progressbar')// get vue-progressbar
 var infiniteScroll =  require('vue-infinite-scroll')// get vue-infinite-scroll
 
-//开启debug模式
+// 开启debug模式
 Vue.config.debug = true
+// 配置是否允许vue-devtools 检查代码  默认为true
+Vue.config.devtools = true
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
