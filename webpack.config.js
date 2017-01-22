@@ -12,16 +12,22 @@ var domain            = process.env.DOMAIN; // your domain process.env.DOMAIN
 // input
 webpackConfig.entry　 =　{
   app:[
-    // main
     './app.js',
-  ],
+  ]
 };
 
+// output
 webpackConfig.output = {
   path: './dist',
-  publicPath: '',
+  publicPath: production? '' : 'dist/',
   filename: production? '[name].[hash].js': '[name].js'
-};//　output
+};
+
+webpackConfig.node = {
+  fs: "empty",
+  net: "empty",
+  tls: "empty"
+};
 
 //doc loader
 webpackConfig.module = {
@@ -50,26 +56,30 @@ webpackConfig.module = {
     {
       test: /\.json/,
       loader: 'json'
-    },
+    }
   ]
 };
 
-webpackConfig.plugins = [
-  // make index.html
-  new HtmlWebpackPlugin({
-    title: 'easy-vue',
-    filename: '../dist/index.html',
-    template: './index.html'
-  }),
-  // separate css file
-  new ExtractPlugin(production? 'app.[hash].css': 'app.css'),
-  // cancel warn when use webpack -p
-  new webpack.optimize.UglifyJsPlugin({
-      compress: {
-          warnings: false
-      }
-  }),
-];
+if (production) {
+  webpackConfig.plugins = [
+    // make index.html
+    new HtmlWebpackPlugin({
+      title: 'Vue-Project',
+      filename: '../dist/index.html',
+      template: './index.template.html'
+    }),
+    // separate css file
+    new ExtractPlugin(production? 'app.[hash].css': 'app.css'),
+    // cancel warn when use webpack -p
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false,
+            drop_debugger: true,
+            drop_console: true
+        }
+    }),
+  ];
+}
 
 /* production plugins need */
 if (production) {

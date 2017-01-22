@@ -4,8 +4,8 @@
   "description": "Learn Vue",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -p -d --colors",
-    "build": "webpack -p --colors"
+    "build-d": "webpack-dev-server webpack.dev.config.js --open --inline --quiet --progress",
+    "build-p": "cross-env NODE_ENV=production webpack -p -d --colors"
   },
   "author": "ChanningKuo<channingkuo@icloud.com>",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "vue-loader": "^9.0.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
