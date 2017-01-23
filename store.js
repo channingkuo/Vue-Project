@@ -33,30 +33,30 @@ var mutations = {
 };
 
 var actions = {
-  getData(context, object){
-    var progress = object.progress
-    var isRefresh = object.refresh
-    progress.$Progress.start()
-    context.commit('updateLoadingState', false)
-    context.commit('updateBusyState', true)
-    fetch('/server.php')
-    .then(function(response) {
-      return response.json()
-    }).then(function(json) {
-      context.commit('updateLoadingState', true)
-      context.commit('updateBusyState', false)
-      if (isRefresh === true) {
-        context.commit('refreshData', json)
-      }else {
-        context.commit('addData', json)
-      }
-      progress.$Progress.finish()
-    }).catch(function(ex) {
-      console.log(ex)
-      context.commit('updateBusyState', false)
-      progress.$Progress.fail()
-    })
-  }
+  // getData(context, object){
+  //   var progress = object.progress
+  //   var isRefresh = object.refresh
+  //   progress.$Progress.start()
+  //   context.commit('updateLoadingState', false)
+  //   context.commit('updateBusyState', true)
+  //   fetch('/server.php')
+  //   .then(function(response) {
+  //     return response.json()
+  //   }).then(function(json) {
+  //     context.commit('updateLoadingState', true)
+  //     context.commit('updateBusyState', false)
+  //     if (isRefresh === true) {
+  //       context.commit('refreshData', json)
+  //     }else {
+  //       context.commit('addData', json)
+  //     }
+  //     progress.$Progress.finish()
+  //   }).catch(function(ex) {
+  //     console.log(ex)
+  //     context.commit('updateBusyState', false)
+  //     progress.$Progress.fail()
+  //   })
+  // }
 }
 
 var moduleCard = {
