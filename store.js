@@ -59,13 +59,6 @@ var actions = {
   // }
 }
 
-var moduleCard = {
-  state: state,
-  getters: getters,
-  mutations: mutations,
-  actions: actions
-}
-
 var store = new Vuex.Store({
   state: state,
   getters: getters,
