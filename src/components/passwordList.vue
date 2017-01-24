@@ -1,13 +1,11 @@
 <template>
     <ul class="content table-view easy-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
         <li class="table-view-cell media" v-for="article in results">
-            <router-link class="navigate-right" v-bind:to="{ name: 'detail', params: { id: article.id }}">
-                <img class="media-object pull-left" v-bind:src="article.images.medium">
-                <div class="media-body">
-                    {{article.original_title}}
-                    <p>{{article.title}}&nbsp;&nbsp;&nbsp;&nbsp;--年份：{{article.year}}</p>
-                </div>
-            </router-link>
+            <!-- <p>{{ article.account }}</p> -->
+            <p>{{ article.caption }}</p>
+            <p>{{ article.iconName }}</p>
+            <p>{{ article.lastEditTime }}</p>
+            <p>{{ article.remark }}</p>
         </li>
         <div class="nsr-card-loading">
             <nsr-loading :hide-loading="isloadingComplete" :is-end-text="endText"></nsr-loading>
@@ -32,7 +30,6 @@ module.exports = {
     },
     mounted: function() {
         this.$nextTick(function() {
-            // this.fetchData()
             this.getListDataSource(this)
         })
     },
@@ -72,14 +69,9 @@ module.exports = {
     },
     computed: mapState({
         results: function(state) {
+            console.log(state.cardData)
             return state.cardData
         }
-        // isloadingComplete: function(state) {
-        //     return state.isloadingComplete
-        // },
-        // busy: function(state) {
-        //     return state.busy
-        // }
     })
 }
 </script>

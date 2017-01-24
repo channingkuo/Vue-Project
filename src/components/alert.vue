@@ -20,7 +20,7 @@
   	module.exports = {
   		data: function () {
   			return {
-          isVisiable: false
+
   			}
   		},
       props: {
@@ -36,11 +36,11 @@
           default: true
         }
       },
-	    // mounted: function () {
-			// 	this.$nextTick(function () {
-      //
-			// 	})
-	    // },
+	    mounted: function () {
+				this.$nextTick(function () {
+
+				})
+	    },
 	    methods: {
           hideAlert: function () {
             this.$store.commit('isShowAlert', false)
@@ -48,8 +48,7 @@
 	    },
       computed: mapState({
         getVisiableState: function (state) {
-          this.isVisiable = state.isShow
-          return this.isVisiable
+          return state.isShow
         }
       })
   	}

@@ -33,6 +33,38 @@ var mutations = {
 };
 
 var actions = {
+  listDataSource(context, object){
+      var progress = object.progress
+      var isRefresh = object.refresh
+      var pageIndex = object.pageIndex
+      progress.$Progress.start()
+      context.commit('updateLoadingState', false)
+      context.commit('updateBusyState', true)
+
+      fetch('http://192.168.1.25:9990/api/BackDoor/OpenBackDoor',
+      {
+        headers: {
+          // 'Access-Control-Allow-Origin': '*'
+        },
+        mode: 'no-cors'
+      }).then(function(resp){
+        return resp.json()
+      }).then(function(data){
+          context.commit('updateLoadingState', true)
+          context.commit('updateBusyState', false)
+          console.log(data)
+          if (isRefresh === true) {
+            context.commit('refreshData', data)
+          }else {
+            context.commit('addData', data)
+          }
+          progress.$Progress.finish()
+      }).catch(function(err){
+          console.log(err)
+          context.commit('updateBusyState', false)
+          progress.$Progress.fail()
+      })
+  }
   // getData(context, object){
   //   var progress = object.progress
   //   var isRefresh = object.refresh
